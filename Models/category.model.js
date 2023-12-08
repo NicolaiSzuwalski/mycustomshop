@@ -1,8 +1,10 @@
 import sequelize from '../Config/db.sequelize.js'
 import { Model, DataTypes } from 'sequelize'
 
+// Deklarerer Class Category som udvider SQ's model klasse
 class Category extends Model {}
 
+// Definerer modellens felter og generelle options
 Category.init(
 	{
 		id: {
