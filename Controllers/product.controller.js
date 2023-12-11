@@ -18,8 +18,7 @@ export default class ProductController {
 	}
 
 	getone = async (id) => {
-		const result = await Product.findOne({
-			where: { id: id },
+		const result = await Product.findByPk(id,{
 			include: [{
 				model: Brand
 			},{
