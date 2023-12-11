@@ -3,7 +3,10 @@ import Category from "../Models/category.model.js";
 import CategoryProductRel from "../Models/category_product_rel.model.js";
 import Product from "../Models/product.model.js";
 
+// Sætter relation mellem produkt og brands
 Product.belongsTo(Brand)
+
+// Sætter relation mellem produkter og kategorier
 Product.belongsToMany(Category, {through: CategoryProductRel})
 Category.belongsToMany(Product, {through: CategoryProductRel})
 

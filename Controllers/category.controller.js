@@ -14,7 +14,10 @@ export default class CategoryController {
 
 	getone = async (id) => {
 		const result = await Category.findByPk(id, {
-			include: Product
+			include: {
+				model: Product,
+				attributes: ['id', 'name']
+			}
 		});
 		return result
 	}
