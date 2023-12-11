@@ -2,10 +2,10 @@ import sequelize from '../Config/db.sequelize.js'
 import { Model, DataTypes } from 'sequelize'
 
 // Deklarerer Class Category som udvider SQ's model klasse
-class Category extends Model {}
+class Brand extends Model {}
 
 // Definerer modellens felter og generelle options
-Category.init(
+Brand.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -13,20 +13,21 @@ Category.init(
 			autoIncrement: true,
 			allowNull: false
 		},
-		title: {
+		name: {
 			type: DataTypes.STRING,
             allowNull: false
 		},
-		is_active: {
-			type: DataTypes.BOOLEAN,
+		image: {
+			type: DataTypes.STRING,
             allowNull: false
 		}
+
 	},
 	{
 		sequelize,
-		underscored: true,
-		modelName: 'category'
+		modelName: 'brand',
+		underscored: true
 	}
 )
 
-export default Category
+export default Brand
