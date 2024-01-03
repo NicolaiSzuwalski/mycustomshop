@@ -17,13 +17,16 @@ Brand.init(
 			type: DataTypes.STRING,
             allowNull: false
 		},
-        image : {
-            type : DataTypes.STRING,
+		image: {
+			type: DataTypes.STRING,
             allowNull: false
-        },
+		}
+
 	},
 	{
-		sequelize
+		sequelize,
+		modelName: 'brand',
+		underscored: true
 	}
 )
 
