@@ -1,23 +1,23 @@
 import express from 'express'
-import { CategoryController } from '../controller/category.controller.js';
+import { BrandController } from '../controller/brand.controller.js';
 const router = express.Router();
-const controller = new CategoryController();
+const controller = new BrandController();
 
 
 // Get list of all categories
-router.get('/categories', async (req, res) => {
+router.get('/brands', async (req, res) => {
 	const result = await controller.listall();
 	res.json(result);
 });
 
 // Get a single category by id (details)
-router.get('/categories/:id([0-9]*)', async (req, res) => {
+router.get('/brands/:id([0-9]*)', async (req, res) => {
     const result = await controller.getone(req.params.id);
 	res.json(result);
 });
 
 // Create a new category
-router.post('/categories', async (req, res) => {
+router.post('/brands', async (req, res) => {
 	try {
 		const result = await controller.create(req.body);
     	res.send({message : 'Category created successfully',
@@ -29,7 +29,7 @@ router.post('/categories', async (req, res) => {
 });
 
 // Update a category by id
-router.put('/categories', async (req, res) => {
+router.put('/brands', async (req, res) => {
 	try {
 		const result = await controller.update(req.body);
     	res.send({message : 'Category updated successfully',
@@ -40,7 +40,7 @@ router.put('/categories', async (req, res) => {
 });
 
 // Delete a category by id
-router.delete('/categories/:id([0-9]*)', async (req, res) => {
+router.delete('/brands/:id([0-9]*)', async (req, res) => {
 	try {
 		await controller.delete(req.params.id);
 		res.send(
